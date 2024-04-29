@@ -16,8 +16,8 @@ func main() {
 
 	for {
 		//TCPサーバに接続
-		//conn, err := net.Dial("tcp", "server:31400")
-		conn, err := net.Dial("tcp", "localhost:31400") //手元で動かす場合はこちら
+		conn, err := net.Dial("tcp", "server:31400") //dockerで動かす場合はこちら
+		//conn, err := net.Dial("tcp", "localhost:31400") //手元で動かす場合はこちら
 		if err != nil {
 			fmt.Println(err)
 			return
