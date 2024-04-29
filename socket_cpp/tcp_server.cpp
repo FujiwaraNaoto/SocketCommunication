@@ -5,17 +5,22 @@
 #include<boost/asio.hpp>
 #include<array>
 
+
 namespace asio=boost::asio;
 using asio::ip::tcp;
 
-const std::string target_address="127.0.0.1";
 const unsigned int port=31400;
 
 int main(){
+
+
     try{
 
         boost::asio::io_context io_context;
-        tcp::acceptor acceptor(io_context,tcp::endpoint(tcp::v4(),port));
+        tcp::endpoint endpoint=tcp::endpoint(tcp::v4(),port);
+        tcp::acceptor acceptor(io_context,endpoint);
+        std::cout<<"Endpoint IP address: "<<endpoint.address().to_string()<<std::endl;
+        std::cout<<"Endpoint port: "<<endpoint.port()<<std::endl;
 
         std::cout<<"server is running on port "<<port<<std::endl;
 
@@ -28,6 +33,7 @@ int main(){
 
             boost::system::error_code ignored_error;
             boost::asio::write(socket,boost::asio::buffer(message),ignored_error);
+
         }
         
         
