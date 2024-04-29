@@ -1,5 +1,6 @@
 # SocketCommunication
 
+C++とgoでソケット通信を行うプログラムです．
 
 ## 筆者の環境
 MacOS: Sonoma14.4.1  
