@@ -1,0 +1,27 @@
+version: '3'
+services:
+  server:
+    container_name: ubuntu_cpp
+    build:
+      context: .
+      dockerfile: socket_cpp/Dockerfile
+    environment:
+      - EXAMPLE_HOST = 0.0.0.0
+      - EXAMPLE_PORT = 31400
+    tty: true
+    stdin_open: true
+
+# goでできたサーバ
+  client:
+    container_name: ubuntu_go
+    build:
+      context: .
+      dockerfile: socket_go/Dockerfile
+    depends_on:
+      - server
+    tty: true
+    stdin_open: true
+
+networks:
+  tcp-network:
+    driver: bridge
