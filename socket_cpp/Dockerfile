@@ -2,9 +2,10 @@ FROM ubuntu:latest
 # update, makeインストール,boostライブラリ，コンパイラg++のインストール
 
 RUN apt-get update && \
-    apt-get install -y g++ && \
-    apt-get install -y libboost-all-dev && \
-    apt-get install -y make && \
+    apt-get install -y \
+    g++ \
+    libboost-all-dev \
+    make && \
     rm -rf /var/lib/apt/lists/*
 
 #ホストのsocket_cppディレクトリ内容をコンテナの作業ディレクトリ /appにコピー
