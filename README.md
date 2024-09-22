@@ -13,6 +13,7 @@ server.cppでサーバの作成
 client.goでサーバからのメッセージを受け取る
 
 動かし方(後に記述しているdockerの環境設定を済ませてから動かしましょう)
+一番目のコマンドを使用してからしばらく待ちます(筆者の環境では2分ぐらいでした)
 ```
 docker-compose build --no-cache 
 docker-compose up
@@ -55,9 +56,9 @@ docker version 25.0.4-rd, build c4cd0a9
 
 ### docker command not found と出てきた場合
 
-以下のコマンドを入力．
-以下のコマンドでは~zshrcファイルに追加書き込みしています  
-(bashrcを用いている方は 書き込み先を~/.bashrcに変更してください)
+以下のコマンドを入力.
+以下のコマンドではzshrcファイルに追加書き込みしています  
+(bashrcを用いている方は 書き込み先をbashrcに変更してください)
 ```
 echo 'export PATH="$HOME/.rd/bin:$PATH"' >> ~/.zshrc
 ```

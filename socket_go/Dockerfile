@@ -1,8 +1,9 @@
 FROM ubuntu:latest
 RUN apt-get update && \
-    apt-get install -y golang-go && \
+    apt-get install -y \
+    golang-go && \
     apt-get clean && \
-    rm -rf /var/lib/apt/lists/* 
+    rm -rf /var/lib/apt/lists/*
 
 #ホストのこのディレクトリ内容をコンテナの作業ディレクトリ /appにコピー
 COPY socket_go /app
@@ -17,4 +18,4 @@ EXPOSE 31400
 #ports:
 #  - "31401:31400"
 
-CMD ["go","run","/app/client.go"]
+CMD ["go","run","client.go"]
